@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alur Tujuan Pembelajaran - Resep Bolen Pisang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9800 0%, #ff6f00 50%, #e65100 100%);
+            height: 100vh;
+            padding: 8px;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 95vw;
+            height: calc(100vh - 16px);
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 152, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9800;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff9800, #ffc107);
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(255, 152, 0, 0.3);
+        }
+
+        .page-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #4a2c1a;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+        }
+
+        .atp-content {
+            display: grid;
+            gap: 12px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .element-section {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .element-section:hover {
+            transform: translateY(-1px);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .element-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #ff9800;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+        }
+
+        .element-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff9800, #ffc107);
+            border-radius: 2px;
+        }
+
+        .learning-objectives {
+            list-style: none;
+            padding: 0;
+        }
+
+        .learning-objectives li {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(255, 248, 225, 0.8);
+            border-radius: 10px;
+            border-left: 3px solid #ff9800;
+            font-size: 0.8rem;
+            color: #4a2c1a;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .learning-objectives li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 152, 0, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .learning-objectives li:hover {
+            transform: translateX(5px);
+            background: rgba(255, 245, 200, 0.9);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.15);
+        }
+
+        .objective-number {
+            font-weight: 700;
+            color: #ff6f00;
+            margin-right: 8px;
+        }
+
+        .navigation {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 2px solid rgba(255, 152, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 12px rgba(255, 152, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+            background: linear-gradient(135deg, #ff6f00 0%, #e65100 100%);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .home-btn {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+            box-shadow: 0 3px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .home-btn:hover {
+            background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                margin: 5px;
+                padding: 15px;
+                border-radius: 15px;
+                height: calc(100vh - 10px);
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+
+            .element-title {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .learning-objectives li {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+                margin-bottom: 6px;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 10px;
+                padding-top: 8px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .atp-content {
+                gap: 8px;
+            }
+
+            .element-section {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.6rem;
+            }
+
+            .element-title {
+                font-size: 1.1rem;
+            }
+
+            .learning-objectives li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <h1 class="page-title">Alur Tujuan Pembelajaran (ATP)</h1>
+                <p class="subtitle">Resep Bolen Pisang</p>
+            </div>
+
+            <div class="atp-content">
+                <div class="element-section">
+                    <h2 class="element-title">Elemen Persiapan Pengolahan</h2>
+                    <ul class="learning-objectives">
+                        <li>
+                            <span class="objective-number">1.1</span>
+                            Menjelaskan pengertian bolen pisang.
+                        </li>
+                        <li>
+                            <span class="objective-number">1.2</span>
+                            Menjelaskan ciri-ciri bolen pisang yang baik.
+                        </li>
+                        <li>
+                            <span class="objective-number">1.3</span>
+                            Menjelaskan tips dalam pembuatan bolen pisang.
+                        </li>
+                        <li>
+                            <span class="objective-number">1.4</span>
+                            Menentukan alat yang digunakan dalam pembuatan bolen pisang.
+                        </li>
+                        <li>
+                            <span class="objective-number">1.5</span>
+                            Menentukan bahan yang digunakan dalam pembuatan bolen pisang.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="element-section">
+                    <h2 class="element-title">Elemen Pengolahan Makanan</h2>
+                    <ul class="learning-objectives">
+                        <li>
+                            <span class="objective-number">2.1</span>
+                            Memahami resep bolen pisang.
+                        </li>
+                        <li>
+                            <span class="objective-number">2.2</span>
+                            Membuat bolen pisang dengan tips pengolahan yang tepat sesuai dengan ciri-ciri bolen pisang yang baik.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <a href="profil_page_profil.html" class="nav-btn">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Kembali ke Profil
+                </a>
+                
+                <a href="page_1.html" class="nav-btn home-btn">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Beranda
+                </a>
+                
+                <a href="cp_page_cp_.html" class="nav-btn">
+                    CP
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M4 11h12l-5.5-5.5L12 4l8 8-8 8-1.5-1.5L16 13H4v-2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add hover effects for better interactivity
+        document.querySelectorAll('.learning-objectives li').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

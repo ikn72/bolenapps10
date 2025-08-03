@@ -1,0 +1,30 @@
+DesktopResponsive={"1009":{
+"pageLayer":{"w":1009,"h":662,"bgColor":"#ff9900","bgImage":"images/background.png","bgSize":"1009px 2px","bgRepeat":"repeat-y"}
+,
+"image30856":{"x":20,"y":65,"w":970,"h":545,"bOffBottom":0,"i":"images/0fd251abeeb5e9470c7782040b30e7ff-removebg-preview.png"}
+,
+"image28966":{"x":899,"y":519,"w":59,"h":59,"bOffBottom":0,"i":"images/9713317.png"}
+,
+"image28872":{"x":933,"y":10,"w":43,"h":43,"bOffBottom":0,"i":"images/home.png"}
+,
+"shape27570":{"x":15,"y":102,"w":977.000000,"h":51.000000,"stylemods":[{"sel":"div.shape27570Text","decl":" { position:fixed; left:3px; top:3px; width:971px; height:45px;}"},{"sel":"span.shape27570Text","decl":" { display:table-cell; position:relative; width:971px; height:45px; vertical-align:middle; text-align:center; line-height:16px; font-size:16px; font-family:\"Lucida Sans Unicode\"; color:#ffffff;}"}],"bOffBottom":0 ,"td": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA9EAAAAzCAYAAACQVItnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADYSURBVHhe7cEBDQAAAMKg909tDjcgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEc1CuwAAfphiUwAAAAASUVORK5CYII="  ,"fd": "" ,"p": "M 1.000000 1.000000 L 976.000000 1.000000 L 976.000000 50.000000 L 1.000000 50.000000 L 1.000000 1.000000 z" ,"i":"images/shape27570.png"}
+,
+"image27566":{"x":36,"y":591,"w":62,"h":62,"bOffBottom":0,"i":"images/universitas_negeri_medan_unimed_www.blogovector.com_.png"}
+,
+"text27564":{"x":23,"y":16,"w":589,"h":28,"txtscale":100,"bOffBottom":0}
+,
+"text27568":{"x":299,"y":114,"w":466,"h":65,"txtscale":100,"bOffBottom":0}
+,
+"text27567":{"x":55,"y":172,"w":921,"h":484,"txtscale":100,"bOffBottom":0}
+,
+"image20578":{"x":0,"y":0,"w":1009,"h":253,"bOffBottom":0,"i":"images/header.png"}
+,
+"image20580":{"x":0,"y":612,"w":1009,"h":50,"bOffBottom":1,"i":"images/footer.png"}
+,
+"RCDResetQuestion":function(){
+try{if(window.dragMgr)window.dragMgr.clearDropZones();}catch(e){if(e&&e.message)console.log(e.message);}
+}
+,
+"RCDResultResize":function(){}
+,"preload":['images/header.png','images/footer.png','images/background.png','images/universitas_negeri_medan_unimed_www.blogovector.com_.png','images/9713317.png','images/home.png','images/0fd251abeeb5e9470c7782040b30e7ff-removebg-preview.png','images/shape27570.png']
+}}

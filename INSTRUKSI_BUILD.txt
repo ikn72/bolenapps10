@@ -1,0 +1,85 @@
+===============================================
+ CARA MEMBUAT FILE EXE - BOLEN PISANG APP
+===============================================
+
+LANGKAH 1: INSTALL NODE.JS
+--------------------------
+1. Buka browser dan kunjungi: https://nodejs.org/
+2. Download versi LTS (Long Term Support)
+3. Install Node.js dengan mengikuti wizard installer
+4. Restart komputer setelah instalasi selesai
+
+LANGKAH 2: BUILD APLIKASI
+-------------------------
+Pilih salah satu cara berikut:
+
+CARA A - Menggunakan File Batch (Mudah):
+1. Double-click file "build.bat"
+2. Tunggu proses selesai
+3. File .exe akan tersedia di folder "dist"
+
+CARA B - Menggunakan PowerShell (Recommended):
+1. Klik kanan pada file "build.ps1"
+2. Pilih "Run with PowerShell"
+3. Jika ada peringatan security, ketik "Y" dan Enter
+4. Tunggu proses selesai
+
+CARA C - Menggunakan Command Prompt Manual:
+1. Buka Command Prompt di folder ini
+2. Ketik: npm install
+3. Tunggu sampai selesai
+4. Ketik: npm run build-win
+5. Tunggu sampai selesai
+
+HASIL BUILD
+-----------
+Setelah build berhasil, Anda akan mendapatkan:
+
+📁 dist/
+├── 📦 Bolen Pisang Interactive Setup 1.0.0.exe  (Installer)
+└── 📁 win-unpacked/
+    └── 🚀 Bolen Pisang Interactive.exe  (Portable)
+
+CARA MENGGUNAKAN
+----------------
+- File "Setup.exe" = Installer yang akan menginstall aplikasi ke komputer
+- File "Portable.exe" = Aplikasi yang bisa langsung dijalankan tanpa install
+
+UKURAN FILE
+-----------
+- File .exe akan berukuran sekitar 150-200 MB
+- Ini normal karena menyertakan runtime Electron
+
+TROUBLESHOOTING
+---------------
+❌ Error "node is not recognized":
+   → Install Node.js terlebih dahulu
+
+❌ Error "npm install failed":
+   → Pastikan koneksi internet stabil
+   → Coba jalankan Command Prompt sebagai Administrator
+
+❌ Error "build failed":
+   → Pastikan semua file masih lengkap
+   → Coba hapus folder "node_modules" dan jalankan ulang
+
+❌ Antivirus mendeteksi sebagai virus:
+   → Ini false positive, tambahkan ke whitelist
+   → File aman karena dibuat dengan Electron
+
+FITUR APLIKASI DESKTOP
+----------------------
+✅ Menu bar dengan opsi lengkap
+✅ Shortcut keyboard (F11 fullscreen, F12 dev tools)
+✅ Window bisa di-resize
+✅ Berjalan seperti aplikasi native Windows
+✅ Tidak perlu browser untuk menjalankan
+
+KONTAK SUPPORT
+--------------
+Jika ada masalah, silakan hubungi developer atau
+cek dokumentasi di file README.md
+
+===============================================
+        Selamat menggunakan aplikasi!
+===============================================

@@ -1,0 +1,52 @@
+PhoneResponsive={"785":{
+"pageLayer":{"w":785,"h":570,"bgColor":"#b45f06","bgImage":"images/background002.png","bgSize":"785px 2px","bgRepeat":"repeat-y"}
+,
+"image34667":{"x":459,"y":363,"w":170,"h":123,"bOffBottom":0,"i":"images/whatsapp_image_2025-06-17_at_14.35.59_735afab3-removebg-preview.png"}
+,
+"image31920":{"x":726,"y":8,"w":33,"h":33,"bOffBottom":0,"i":"images/home.png"}
+,
+"button31926":{"x":620,"y":536,"w":37.000000,"h":35.000000,"stylemods":[{"sel":"div.button31926Text","decl":" { position:fixed; left:2px; top:2px; width:32px; height:30px;}"},{"sel":"span.button31926Text","decl":" { display:table-cell; position:relative; width:32px; height:30px; vertical-align:middle; text-align:center; line-height:11px; font-size:11px; font-family:\"Lucida Sans Unicode\"; color:#ffffff;}"}],"bOffBottom":0  ,"td": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAjCAYAAAATx8MeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAcSURBVFhH7cExAQAAAMKg9U9tB28gAAAAAIBHDRRfAAH27vVfAAAAAElFTkSuQmCC" ,"tdO": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAjCAYAAAATx8MeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAcSURBVFhH7cExAQAAAMKg9U9tB28gAAAAAIBHDRRfAAH27vVfAAAAAElFTkSuQmCC" ,"tdD": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAjCAYAAAATx8MeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAcSURBVFhH7cExAQAAAMKg9U9tB28gAAAAAIBHDRRfAAH27vVfAAAAAElFTkSuQmCC" ,"tdDi": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAjCAYAAAATx8MeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAcSURBVFhH7cExAQAAAMKg9U9tB28gAAAAAIBHDRRfAAH27vVfAAAAAElFTkSuQmCC"  ,"fd": "images/black_basic_next.png" ,"fdO": "images/black_basic_next_over.png" ,"fdD": "images/black_basic_next_click.png" ,"fdDi": "images/black_basic_next.png" ,"p": "M 0.000000 0.000000 L 36.000000 0.000000 L 36.000000 34.000000 L 0.000000 34.000000 L 0.000000 0.000000 z"}
+,
+"image18462":{"x":0,"y":0,"w":785,"h":253,"bOffBottom":0,"i":"images/header002.png"}
+,
+"image18464":{"x":0,"y":520,"w":785,"h":50,"bOffBottom":1,"i":"images/footer002.png"}
+,
+"image32054":{"x":62,"y":130,"w":621,"h":261,"bOffBottom":0,"i":"images/image_4003_32053.jpg"}
+,
+"image31929":{"x":51,"y":188,"w":642,"h":289,"bOffBottom":0,"i":"images/imagecrop_image9896.png"}
+,
+"image31933":{"x":424,"y":50,"w":345,"h":187,"bOffBottom":0,"i":"images/4b38575198391750f5d80668d5711db6-removebg-preview_1_.png"}
+,
+"RCDResetQuestion":function(){
+try{if(window.dragMgr)window.dragMgr.clearDropZones();}catch(e){if(e&&e.message)console.log(e.message);}
+}
+,
+"RCDResultResize":function(){}
+,"preload":['images/header002.png','images/footer002.png','images/background002.png','images/imagecrop_image9896.png']
+},
+"480":{
+"pageLayer":{"w":480,"h":763,"bgColor":"#ffffff","bgImage":"images/background003.png","bgSize":"480px 2px","bgRepeat":"repeat-y"}
+,
+"image34667":{"x":281,"y":466,"w":104,"h":75,"bOffBottom":0,"i":"images/whatsapp_image_2025-06-17_at_14.35.59_735afab3-removebg-preview.png"}
+,
+"image31920":{"x":444,"y":10,"w":20,"h":20,"bOffBottom":0,"i":"images/home.png"}
+,
+"button31926":{"x":394,"y":531,"w":23.000000,"h":22.000000,"stylemods":[{"sel":"div.button31926Text","decl":" { position:fixed; left:2px; top:2px; width:18px; height:17px;}"},{"sel":"span.button31926Text","decl":" { display:table-cell; position:relative; width:18px; height:17px; vertical-align:middle; text-align:center; line-height:7px; font-size:7px; font-family:\"Lucida Sans Unicode\"; color:#ffffff;}"}],"bOffBottom":0  ,"td": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYSURBVEhLYxgFo2AUjIJRMApGwYgCDAwAB/4AAaXAQWoAAAAASUVORK5CYII=" ,"tdO": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYSURBVEhLYxgFo2AUjIJRMApGwYgCDAwAB/4AAaXAQWoAAAAASUVORK5CYII=" ,"tdD": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYSURBVEhLYxgFo2AUjIJRMApGwYgCDAwAB/4AAaXAQWoAAAAASUVORK5CYII=" ,"tdDi": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYSURBVEhLYxgFo2AUjIJRMApGwYgCDAwAB/4AAaXAQWoAAAAASUVORK5CYII="  ,"fd": "images/black_basic_next.png" ,"fdO": "images/black_basic_next_over.png" ,"fdD": "images/black_basic_next_click.png" ,"fdDi": "images/black_basic_next.png" ,"p": "M 0.000000 0.000000 L 22.000000 0.000000 L 22.000000 21.000000 L 0.000000 21.000000 L 0.000000 0.000000 z"}
+,
+"image18462":{"x":0,"y":0,"w":480,"h":253,"bOffBottom":0,"i":"images/header003.png"}
+,
+"image18464":{"x":0,"y":713,"w":480,"h":50,"bOffBottom":1,"i":"images/footer003.png"}
+,
+"image32054":{"x":38,"y":167,"w":380,"h":160,"bOffBottom":0,"i":"images/image_4003_32053.jpg"}
+,
+"image31929":{"x":0,"y":0,"w":0,"h":0,"bOffBottom":0,"i":"images/imagecrop_image9896.png"}
+,
+"image31933":{"x":259,"y":64,"w":211,"h":115,"bOffBottom":0,"i":"images/4b38575198391750f5d80668d5711db6-removebg-preview_1_.png"}
+,
+"RCDResetQuestion":function(){
+try{if(window.dragMgr)window.dragMgr.clearDropZones();}catch(e){if(e&&e.message)console.log(e.message);}
+}
+,
+"RCDResultResize":function(){}
+,"preload":['images/header003.png','images/footer003.png','images/background003.png','images/imagecrop_image9896.png']
+}}

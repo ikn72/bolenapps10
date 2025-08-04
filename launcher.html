@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolen Pisang - Launcher</title>
+    <link rel="icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link rel="shortcut icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2E8B57, #228B22);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 500px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .info-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            opacity: 0.9;
+        }
+        
+        .launch-btn {
+            background: linear-gradient(45deg, #FF6347, #FF4500);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 99, 71, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.6);
+        }
+        
+        .secondary-btn {
+            background: linear-gradient(45deg, #4682B4, #4169E1);
+            padding: 10px 20px;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(70, 130, 180, 0.4);
+        }
+        
+        .secondary-btn:hover {
+            box-shadow: 0 6px 20px rgba(70, 130, 180, 0.6);
+        }
+        
+        .countdown {
+            font-size: 1.1em;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+        
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍌 Bolen Pisang</h1>
+        <p class="subtitle">Pembelajaran Kuliner Tradisional Indonesia</p>
+        
+        <div class="info-box">
+            <div class="info-title">👩‍🎓 Informasi Pembuat</div>
+            <div class="info-item">
+                <span class="info-label">Nama:</span>
+                <span>Eka Tiara Lubis</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">NIM:</span>
+                <span>5213342010</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Program:</span>
+                <span>Pembelajaran Kuliner UNIMED</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Fokus:</span>
+                <span>Kue Tradisional Indonesia</span>
+            </div>
+        </div>
+        
+        <a href="https://ikn72.github.io/bolenapps10/index.html" 
+           class="launch-btn" 
+           target="_blank" 
+           onclick="showLoading()">
+            👨‍🍳 MULAI PEMBELAJARAN
+        </a>
+        
+        <br>
+        
+        <a href="index.html" 
+           class="launch-btn secondary-btn" 
+           onclick="showLoading()">
+            📁 VERSI OFFLINE
+        </a>
+        
+        <div class="countdown" id="countdown">
+            Klik tombol di atas untuk memulai pembelajaran!
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Membuka website pembelajaran...</p>
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('countdown').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('countdown').innerHTML = 'Website berhasil dibuka! Selamat belajar! 🎉';
+                document.getElementById('countdown').style.display = 'block';
+            }, 2000);
+        }
+        
+        // Auto redirect after 10 seconds
+        let timeLeft = 10;
+        const countdownElement = document.getElementById('countdown');
+        
+        function updateCountdown() {
+            if (timeLeft > 0) {
+                countdownElement.innerHTML = `Auto redirect dalam ${timeLeft} detik... atau klik tombol di atas`;
+                timeLeft--;
+                setTimeout(updateCountdown, 1000);
+            } else {
+                window.open('https://ikn72.github.io/bolenapps10/index.html', '_blank');
+                showLoading();
+            }
+        }
+        
+        // Start countdown
+        setTimeout(updateCountdown, 3000);
+    </script>
+</body>
+</html>

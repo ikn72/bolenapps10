@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolen Pisang - Tujuan Pembelajaran</title>
+    <link rel="icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link rel="shortcut icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 50%, #ff4500 100%);
+            min-height: 100vh;
+            padding: 8px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 16px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 140, 0, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #ff8c00;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff8c00, #ff6b35);
+            border-radius: 2px;
+        }
+
+        .school-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            object-fit: contain;
+            background: white;
+            padding: 2px;
+        }
+
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .page-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            gap: 6px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .element-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 240, 0.9) 100%);
+            border-radius: 8px;
+            padding: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 140, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .element-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff8c00, #ff6b35, #ff4500);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .element-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .element-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #783f04;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ff8c00;
+            position: relative;
+        }
+
+        .element-title::before {
+            content: '🏫';
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+
+        .element-title.objectives::before {
+            content: '🎯';
+        }
+
+        .element-title.rationale::before {
+            content: '📚';
+        }
+
+        .element-description {
+            color: #2c3e50;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .school-info-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .school-logo-section {
+            flex: 0 0 80px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5px;
+        }
+
+        .school-logo-info {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+        }
+
+        .school-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-size: 0.95rem;
+        }
+
+        .school-info-label {
+            font-weight: bold;
+            color: #783f04;
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        .school-info-value {
+            color: #2c3e50;
+            flex: 1;
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0 0 0;
+        }
+
+        .objectives-list li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+            color: #2c3e50;
+            line-height: 1.3;
+            font-size: 0.9rem;
+        }
+
+        .objectives-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff8c00;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 2px solid #ff8c00;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .university-footer {
+            margin-top: 6px;
+            padding: 4px 8px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 107, 53, 0.08) 100%);
+            border-radius: 0 0 8px 8px;
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
+        }
+
+        .university-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .university-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .university-text {
+            font-size: 0.8rem;
+            color: #783f04;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.2;
+            opacity: 0.9;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+            background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+        }
+
+        .home-btn {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            box-shadow: 0 3px 10px rgba(52, 73, 94, 0.3);
+        }
+
+        .home-btn:hover {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            box-shadow: 0 5px 15px rgba(52, 73, 94, 0.4);
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+        
+
+        @media (max-width: 768px) {
+            body { padding: 4px; }
+            .container { padding: 6px; border-radius: 8px; }
+            .header { gap: 10px; }
+            .school-logo { width: 35px; height: 35px; }
+            .page-title { font-size: 1.1rem; }
+            .subtitle { font-size: 0.8rem; }
+            .element-title { font-size: 0.9rem; }
+            .element-description { font-size: 0.8rem; }
+            .element-section { padding: 5px; }
+            .main-content { gap: 5px; }
+            .navigation { 
+                flex-direction: column; 
+                gap: 5px; 
+                margin-top: 6px; 
+                padding-top: 6px; 
+            }
+            .nav-btn { 
+                width: 100%; 
+                justify-content: center; 
+                padding: 8px; 
+                font-size: 10px; 
+            }
+            .university-footer { 
+                padding: 3px 6px; 
+                margin-top: 4px; 
+            }
+            .university-info { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 3px; 
+            }
+            .university-logo { width: 14px; height: 14px; }
+            .university-text { font-size: 0.6rem; }
+            .school-info { 
+                flex-direction: column; 
+                gap: 10px; 
+            }
+            .school-logo-section { 
+                flex: none; 
+                order: -1; 
+                align-self: center; 
+            }
+            .school-logo-info { 
+                width: 60px; 
+                height: 60px; 
+            }
+            .school-info-label { 
+                min-width: 70px; 
+                font-size: 0.8rem; 
+            }
+            .school-info-value { font-size: 0.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .page-title { font-size: 0.9rem; }
+            .element-section { padding: 5px; }
+            .main-content { gap: 5px; }
+            .school-info-item { 
+                flex-direction: column; 
+                gap: 2px; 
+            }
+            .school-info-label { min-width: auto; }
+            .objectives-list li { font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+  <div class="header-text">
+                    <h1 class="page-title">PROFIL SEKOLAH & TUJUAN PEMBELAJARAN</h1>
+                    <p class="subtitle">Resep Bolen Pisang</p>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="element-section">
+                    <h2 class="element-title">Profil Sekolah</h2>
+                    <div class="school-info">
+                        <div class="school-logo-section">
+                            <img src="Gambar/logo sekolah SMK NEGERI 1 BERINGIN.png" alt="Logo SMK NEGERI 1 BERINGIN" class="school-logo-info">
+                        </div>
+                        <div class="school-info-content">
+                            <div class="school-info-item">
+                                <span class="school-info-label">Nama Sekolah</span>
+                                <span class="school-info-value">: SMKN 1 BERINGIN</span>
+                            </div>
+                            <div class="school-info-item">
+                                <span class="school-info-label">Mata Pelajaran</span>
+                                <span class="school-info-value">: KULINER</span>
+                            </div>
+                            <div class="school-info-item">
+                                <span class="school-info-label">Fase</span>
+                                <span class="school-info-value">: F/ XI/ KULINER 2024-2025</span>
+                            </div>
+                            <div class="school-info-item">
+                                <span class="school-info-label">Semester</span>
+                                <span class="school-info-value">: Ganjil (Satu)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="element-section">
+                    <h2 class="element-title objectives">Tujuan Pembelajaran</h2>
+                    <p class="element-description">Peserta didik mampu mampu membuat produk pastry</p>
+                </div>
+
+                <div class="element-section">
+                    <h2 class="element-title objectives">Indikator Tujuan Pembelajaran</h2>
+                    <ul class="objectives-list">
+                        <li>Peserta didik dapat menyebutkan dan menjelaskan bahan-bahan dalam pembuatan pastry</li>
+                        <li>Peserta didik memahami prinsip-prinsip dasar seperti pengukuran, perbandingan bahan dan teknik dasar dalam pembuatan produk pastry</li>
+                        <li>Peserta didik dapat mengikuti langkah-langkah yang tertera dalam resep pastry dengan tepat dan benar</li>
+                        <li>Peserta didik dapat menggunakan peralatan dapur dan alat pengukur seperti timbangan, sendok takar, gelas ukur dengan benar</li>
+                        <li>Peserta didik mampu mengolah produk cookies, Puff Pastry, Danish Pastry, Bolen Pisang, Choux Paste, Pie</li>
+                        <li>Peserta didik dapat mengevaluasi hasil akhir produk pastry</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <a href="cp_page_cp_.html" class="nav-btn">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Kembali ke CP
+                </a>
+                
+                <a href="page_1.html" class="nav-btn home-btn">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Beranda
+                </a>
+                
+                <a href="pengantar_page_1_1new.html" class="nav-btn">
+                    Materi
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="university-footer">
+            <div class="university-info">
+                <img src="images/universitas_negeri_medan_unimed_www.blogovector.com_.png" alt="Logo UNIMED" class="university-logo">
+                <div class="university-text">
+                    <strong>Universitas Negeri Medan (UNIMED)</strong><br>
+                    Program Studi Pendidikan Tata Boga
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

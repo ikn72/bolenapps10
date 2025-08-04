@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Interaktif Bolen Pisang</title>
+    <link rel="icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link rel="shortcut icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 50%, #e65100 100%);
+            min-height: 100vh;
+            padding: 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced smooth background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating particles effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating banana and baking icons */
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.08;
+            animation: float 20s infinite linear;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+            z-index: 0;
+        }
+
+        /* Posisi floating icons hanya di sisi kiri dan kanan */
+        .floating-icon:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { left: 10%; animation-delay: -2s; }
+        .floating-icon:nth-child(3) { left: 15%; animation-delay: -4s; }
+        .floating-icon:nth-child(4) { left: 85%; animation-delay: -6s; }
+        .floating-icon:nth-child(5) { left: 90%; animation-delay: -8s; }
+        .floating-icon:nth-child(6) { left: 95%; animation-delay: -10s; }
+        .floating-icon:nth-child(7) { left: 2%; animation-delay: -12s; }
+        .floating-icon:nth-child(8) { left: 88%; animation-delay: -14s; }
+        .floating-icon:nth-child(9) { left: 92%; animation-delay: -16s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.08;
+            }
+            85% {
+                opacity: 0.08;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cooking steam animation */
+        .steam {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 2px;
+            opacity: 0;
+            animation: steam 3s infinite ease-in-out;
+        }
+
+        .steam:nth-child(2) { left: 45%; animation-delay: 0.5s; }
+        .steam:nth-child(3) { left: 55%; animation-delay: 1s; }
+
+        @keyframes steam {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateX(-50%) translateY(-15px) scale(1.2);
+            }
+        }
+
+        /* Sparkle animation for special effects */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ffd700, #ffed4e);
+            border-radius: 50%;
+            animation: sparkle 3s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 248, 225, 0.95) 50%, 
+                rgba(255, 243, 224, 0.95) 100%);
+            border-radius: 32px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 152, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 152, 0, 0.3);
+            width: 80%;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent);
+        }
+
+        /* Header with logos */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                #ff9800, 
+                #f57c00, 
+                #e65100);
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(255, 152, 0, 0.3);
+        }
+
+        .logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            padding: 3px;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(255, 152, 0, 0.4);
+        }
+
+        .logo:hover {
+            transform: scale(1.08) rotate(8deg);
+            box-shadow: 
+                0 8px 35px rgba(0, 0, 0, 0.25),
+                0 0 0 3px rgba(255, 255, 255, 0.6);
+        }
+
+        .logo:hover::before {
+            opacity: 1;
+        }
+
+        /* Title section */
+        .title-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-align: center;
+            position: relative;
+        }
+
+        .title-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: center;
+        }
+
+        .main-logo {
+            width: 12px;
+            height: 8px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 1px;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 152, 0, 0.3);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: bananaGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes bananaGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 15px 40px rgba(0, 0, 0, 0.2),
+                    0 0 0 3px rgba(255, 152, 0, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 15px 40px rgba(255, 193, 7, 0.4),
+                    0 0 0 3px rgba(255, 193, 7, 0.6),
+                    0 0 20px rgba(255, 193, 7, 0.3);
+            }
+        }
+
+        /* Banana decoration around main logo */
+        .title-header::before {
+            content: '🍌';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            animation: bananaFloat 4s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .title-header::after {
+            content: '🍌';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            animation: bananaFloat 4s infinite ease-in-out reverse;
+            z-index: -1;
+        }
+
+        @keyframes bananaFloat {
+            0%, 100% {
+                transform: translateY(-50%) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-60%) rotate(5deg);
+            }
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', 'Poppins', serif;
+            font-size: 0.5rem;
+            font-weight: 600;
+            color: #2c1810;
+            margin: 0;
+            letter-spacing: -0.01em;
+            position: relative;
+            text-shadow: 
+                0 1px 3px rgba(255, 255, 255, 0.8),
+                0 1px 2px rgba(255, 255, 255, 0.6);
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: #4a2c1a;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Main content area */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        /* Menu Grid */
+        .menu-container {
+            width: 90%;
+            max-width: 800px;
+            height: 50%;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            height: 100%;
+            align-items: stretch;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(255, 248, 225, 0.85) 50%, 
+                rgba(255, 243, 224, 0.8) 100%);
+            border-radius: 16px;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 152, 0, 0.2);
+            border: 2px solid rgba(255, 152, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+            gap: 8px;
+            min-height: 65px;
+            justify-content: flex-start;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                #8B4513, 
+                #D2691E, 
+                #DEB887, 
+                #F5DEB3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .menu-item:hover::before {
+            left: 100%;
+        }
+
+        .menu-item:hover::after {
+            opacity: 0.1;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(255, 152, 0, 0.3),
+                0 0 0 1px rgba(255, 152, 0, 0.4);
+            border-color: rgba(255, 152, 0, 0.4);
+        }
+
+        .menu-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .menu-item:hover .menu-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .menu-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            align-items: flex-start;
+        }
+
+        .menu-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c1810;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            margin: 0;
+            letter-spacing: 0.01em;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover h3 {
+            color: #1a0f08;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9);
+        }
+
+        .menu-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: #4a2c1a;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
+            margin: 0;
+            text-align: left;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover p {
+            color: #2c1810;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Special effects for cooking item */
+        .cooking-item {
+            position: relative;
+        }
+
+        .cooking-item:hover .steam {
+            animation-play-state: running;
+        }
+
+        .cooking-item .menu-icon {
+            position: relative;
+        }
+
+        .cooking-item:hover .menu-icon {
+            animation: cookingBounce 0.6s ease-in-out;
+        }
+
+        @keyframes cookingBounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Enhanced sparkle effects */
+        .menu-item:hover .sparkle {
+            animation-duration: 1s;
+            background: radial-gradient(circle, #ffd700, #ffed4e, #ff9800);
+        }
+
+        /* Banana pulse animation for title */
+        .page-title {
+            position: relative;
+        }
+
+        .page-title::before {
+            content: '🍌';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7rem;
+            opacity: 0.4;
+            animation: bananaPulse 2s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .page-title::after {
+            content: '🥧';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7rem;
+            opacity: 0.4;
+            animation: bananaPulse 2s infinite ease-in-out 1s;
+            z-index: -1;
+        }
+
+        @keyframes bananaPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateY(-50%) scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: translateY(-50%) scale(1.1);
+            }
+        }
+
+        /* Footer navigation */
+        .footer-nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* University Footer Styles */
+        .university-footer {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 107, 53, 0.08) 100%);
+            border-radius: 0 0 12px 12px;
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
+        }
+
+        .university-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .university-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            object-fit: cover;
+        }
+
+        .university-text {
+            font-size: 0.8rem;
+            color: #783f04;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+            opacity: 0.9;
+        }
+
+        .footer-btn {
+            background: linear-gradient(145deg, 
+                #ff9800 0%, 
+                #f57c00 50%, 
+                #e65100 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 152, 0, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .footer-btn:hover::before {
+            left: 100%;
+        }
+
+        .footer-btn:hover {
+            background: linear-gradient(145deg, 
+                #f57c00 0%, 
+                #e65100 50%, 
+                #d84315 100%);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 
+                0 20px 60px rgba(255, 152, 0, 0.4),
+                0 0 0 1px rgba(255, 152, 0, 0.5);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        /* Extra Large Desktop (1920px+) */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1600px;
+                padding: 20px;
+                gap: 20px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .main-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .page-title {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .menu-grid {
+                gap: 20px;
+            }
+            
+            .menu-item {
+                padding: 8px;
+                min-height: 80px;
+                border-radius: 8px;
+                box-shadow: 0 3px 12px rgba(230, 81, 0, 0.3);
+            }
+            
+            .menu-icon {
+                font-size: 1.6rem;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.8rem;
+            }
+            
+            .menu-item p {
+                font-size: 0.6rem;
+            }
+            
+            .footer-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Large Desktop (1440px-1919px) */
+        @media (min-width: 1440px) and (max-width: 1919px) {
+            .container {
+                max-width: 1400px;
+                padding: 18px;
+                gap: 18px;
+            }
+            
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .main-logo {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .page-title {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .menu-grid {
+                gap: 18px;
+            }
+            
+            .menu-item {
+                padding: 6px;
+                min-height: 70px;
+                border-radius: 7px;
+                box-shadow: 0 3px 10px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 10px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 1.0rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.8rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Standard Desktop (1200px-1439px) */
+        @media (min-width: 1200px) and (max-width: 1439px) {
+            .container {
+                max-width: 1200px;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .main-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .menu-grid {
+                gap: 15px;
+            }
+            
+            .menu-item {
+                padding: 6px;
+                min-height: 68px;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 9px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.7rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.98rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.78rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 9px 22px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Small Desktop/Large Laptop (1024px-1199px) */
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            .container {
+                max-width: 1000px;
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .main-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .menu-grid {
+                gap: 12px;
+            }
+            
+            .menu-item {
+                padding: 6px;
+                min-height: 65px;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 8px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.6rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.75rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Tablet Landscape (768px-1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                padding: 8px;
+            }
+            
+            .container {
+                max-width: 900px;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            .header {
+                padding: 6px 0;
+            }
+            
+            .logo {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .main-logo {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .page-title {
+                font-size: 1.2rem;
+            }
+            
+            .subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .menu-item {
+                padding: 5px;
+                min-height: 58px;
+                border-radius: 5px;
+                box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 7px;
+                justify-content: flex-start;
+                margin: 5px;
+            }
+            
+            .menu-icon {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.85rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.65rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 7px 18px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Tablet Portrait (481px-767px) */
+        @media (min-width: 481px) and (max-width: 767px) {
+            body {
+                padding: 6px;
+            }
+            
+            .container {
+                padding: 8px;
+                gap: 8px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 6px 0;
+                gap: 8px;
+            }
+            
+            .logo {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .main-logo {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .page-title {
+                font-size: 1.0rem;
+            }
+            
+            .subtitle {
+                font-size: 0.5rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .menu-item {
+                padding: 4px;
+                min-height: 55px;
+                border-radius: 5px;
+                box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 6px;
+                justify-content: flex-start;
+                margin: 4px;
+            }
+            
+            .menu-icon {
+                font-size: 1.3rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.8rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.6rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Mobile Large (376px-480px) */
+        @media (min-width: 376px) and (max-width: 480px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 4px;
+            }
+            
+            .container {
+                height: auto;
+                min-height: calc(100vh - 8px);
+                grid-template-rows: auto auto auto auto;
+                padding: 6px;
+                gap: 6px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 5px 0;
+                gap: 6px;
+            }
+            
+            .logo {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .main-logo {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .page-title {
+                font-size: 0.9rem;
+            }
+            
+            .subtitle {
+                font-size: 0.45rem;
+            }
+            
+            .main-content {
+                height: auto;
+                overflow: visible;
+                padding: 5px 0;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            
+            .menu-item {
+                padding: 4px;
+                min-height: 60px;
+                border-radius: 4px;
+                box-shadow: 0 1px 6px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 6px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.8rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.6rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 5px 14px;
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Mobile Medium (321px-375px) */
+        @media (min-width: 321px) and (max-width: 375px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 3px;
+            }
+            
+            .container {
+                height: auto;
+                min-height: calc(100vh - 6px);
+                grid-template-rows: auto auto auto auto;
+                padding: 5px;
+                gap: 5px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 3px 0;
+            }
+            
+            .logo {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .main-logo {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .page-title {
+                font-size: 1.4rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            .main-content {
+                height: auto;
+                overflow: visible;
+                padding: 5px 0;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            
+            .menu-item {
+                padding: 4px;
+                min-height: 40px;
+                border-radius: 4px;
+                box-shadow: 0 1px 6px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 6px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.0rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 1.0rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 1.0rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 4px 12px;
+                font-size: 0.7rem;
+            }
+
+            .university-footer {
+                padding: 6px 12px;
+                margin-top: 8px;
+            }
+
+            .university-logo {
+                width: 25px;
+                height: 25px;
+            }
+
+            .university-text {
+                font-size: 0.65rem;
+            }
+        }
+        
+        /* Mobile Small (≤320px) */
+        @media (max-width: 320px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 2px;
+            }
+            
+            .container {
+                height: auto;
+                min-height: calc(100vh - 4px);
+                grid-template-rows: auto auto auto auto;
+                padding: 4px;
+                gap: 4px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 4px 0;
+                gap: 5px;
+            }
+            
+            .logo {
+                width: 22px;
+                height: 22px;
+            }
+            
+            .main-logo {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .page-title {
+                font-size: 0.8rem;
+            }
+            
+            .subtitle {
+                font-size: 0.4rem;
+            }
+            
+            .main-content {
+                height: auto;
+                overflow: visible;
+                padding: 5px 0;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            
+            .menu-item {
+                padding: 3px;
+                min-height: 55px;
+                border-radius: 3px;
+                box-shadow: 0 1px 4px rgba(230, 81, 0, 0.3);
+                flex-direction: row;
+                text-align: left;
+                gap: 5px;
+                justify-content: flex-start;
+            }
+            
+            .menu-icon {
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+            
+            .menu-text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                flex: 1;
+                align-items: flex-start;
+            }
+            
+            .menu-item h3 {
+                font-size: 0.7rem;
+                margin-bottom: 0;
+                line-height: 1.3;
+            }
+            
+            .menu-item p {
+                font-size: 0.5rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+            
+            .footer-btn {
+                padding: 3px 10px;
+                font-size: 0.65rem;
+            }
+
+            .university-footer {
+                padding: 6px 10px;
+                margin-top: 8px;
+            }
+
+            .university-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
+
+            .university-logo {
+                width: 22px;
+                height: 22px;
+            }
+
+            .university-text {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorative elements -->
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+
+    <!-- Floating banana and baking icons -->
+    <div class="floating-icons">
+        <div class="floating-icon">🍌</div>
+        <div class="floating-icon">🥧</div>
+        <div class="floating-icon">🍰</div>
+        <div class="floating-icon">🧁</div>
+        <div class="floating-icon">🥖</div>
+        <div class="floating-icon">🍞</div>
+        <div class="floating-icon">🥐</div>
+        <div class="floating-icon">🍪</div>
+        <div class="floating-icon">🧈</div>
+    </div>
+
+    <div class="container loading">
+        <!-- Header -->
+        <div class="header">
+            <img src="Gambar/logo universitas_negeri_medan_unimed_.png" alt="UNIMED Logo" class="logo">
+            <img src="Gambar/logo sekolah SMK NEGERI 1 BERINGIN.png" alt="SMK Logo" class="logo">
+        </div>
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <div class="title-header">
+                <img src="Gambar/desain kue jadi 1.png" alt="Pisang" class="main-logo">
+                <h1 class="page-title">DAFTAR ISI</h1>
+            </div>
+            <p class="subtitle">Pembelajaran Interaktif Membuat Bolen Pisang</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item" onclick="navigateTo('profil_page_profil.html')">
+                        <div class="menu-icon">👨‍🍳</div>
+                        <div class="menu-text-content">
+                            <h3>Profil</h3>
+                            <p>Informasi tentang pembuat aplikasi pembelajaran kuliner ini dan latar belakang pengalaman memasak</p>
+                        </div>
+                        <div class="sparkle" style="top: 10px; left: 20px; animation-delay: 0s;"></div>
+                        <div class="sparkle" style="top: 30px; right: 15px; animation-delay: 0.5s;"></div>
+                    </div>
+
+                    <div class="menu-item" onclick="navigateTo('atp_page_atp.html')">
+                        <div class="menu-icon">📝</div>
+                        <div class="menu-text-content">
+                            <h3>ATP</h3>
+                            <p>Alur Tujuan Pembelajaran yang sistematis untuk memahami proses pembuatan bolen pisang secara menyeluruh</p>
+                        </div>
+                        <div class="sparkle" style="top: 15px; left: 25px; animation-delay: 0.2s;"></div>
+                    </div>
+
+                    <div class="menu-item" onclick="navigateTo('cp_page_cp_.html')">
+                        <div class="menu-icon">🏆</div>
+                        <div class="menu-text-content">
+                            <h3>CP</h3>
+                            <p>Capaian Pembelajaran yang harus dicapai siswa dalam mempelajari teknik pembuatan bolen pisang</p>
+                        </div>
+                        <div class="sparkle" style="top: 20px; right: 20px; animation-delay: 0.8s;"></div>
+                    </div>
+
+                    <div class="menu-item" onclick="navigateTo('tujuanpemb_page_tjpemb.html')">
+                        <div class="menu-icon">🎯</div>
+                        <div class="menu-text-content">
+                            <h3>Tujuan Pembelajaran</h3>
+                            <p>Tujuan spesifik yang akan dicapai setelah menyelesaikan pembelajaran pembuatan bolen pisang</p>
+                        </div>
+                        <div class="sparkle" style="top: 12px; left: 30px; animation-delay: 1.2s;"></div>
+                        <div class="sparkle" style="bottom: 15px; right: 25px; animation-delay: 1.5s;"></div>
+                    </div>
+
+                    <div class="menu-item cooking-item" onclick="navigateTo('pengantar_page_1_1new.html')">
+                        <div class="menu-icon">🥧</div>
+                        <div class="menu-text-content">
+                            <h3>Materi</h3>
+                            <p>Materi pembelajaran lengkap tentang bolen pisang, mulai dari pengantar hingga teknik pembuatan</p>
+                        </div>
+                        <div class="steam"></div>
+                        <div class="steam"></div>
+                        <div class="steam"></div>
+                        <div class="sparkle" style="top: 25px; left: 15px; animation-delay: 0.3s;"></div>
+                    </div>
+
+                    <div class="menu-item" onclick="navigateTo('video_page_video.html')">
+                        <div class="menu-icon">🎬</div>
+                        <div class="menu-text-content">
+                            <h3>Video</h3>
+                            <p>Video panduan lengkap cara membuat bolen pisang step by step dengan demonstrasi yang jelas</p>
+                        </div>
+                        <div class="sparkle" style="top: 18px; right: 18px; animation-delay: 0.7s;"></div>
+                        <div class="sparkle" style="bottom: 20px; left: 22px; animation-delay: 1.1s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer-nav">
+            <a href="index.html" class="footer-btn">🏠 Beranda</a>
+        </div>
+        
+        <!-- University Footer -->
+        <div class="university-footer">
+            <div class="university-info">
+                <img src="Gambar/logo universitas_negeri_medan_unimed_.png" alt="Logo UNIMED" class="university-logo">
+                <div class="university-text">
+                    <strong>Universitas Negeri Medan (UNIMED)</strong><br>
+                    Program Studi Pendidikan Tata Boga
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation function
+        function navigateTo(page) {
+            // Add loading effect
+            const clickedItem = event.currentTarget;
+            clickedItem.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                window.location.href = page;
+            }, 150);
+        }
+
+        function goHome() {
+            window.location.href = 'cover.html';
+        }
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            const container = document.querySelector('.container');
+            container.style.animationDelay = '0.2s';
+        });
+
+        // Add staggered animation for menu items
+        window.addEventListener('load', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 300 + (index * 100));
+            });
+        });
+
+        // Add click handler for footer button
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerButton = document.querySelector('.footer-btn');
+            footerButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // Add loading effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 150);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                goHome();
+            }
+        });
+
+        // Add entrance animation for the whole container
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            setTimeout(() => {
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

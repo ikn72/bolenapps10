@@ -1451,6 +1451,144 @@
                 font-size: 0.6rem;
             }
         }
+
+        /* Pre-Test Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.98) 0%, 
+                rgba(255, 248, 225, 0.98) 50%, 
+                rgba(255, 243, 224, 0.98) 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .close {
+            color: #ff6b35;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .close:hover {
+            color: #e55100;
+            transform: scale(1.1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 152, 0, 0.2);
+        }
+
+        .modal-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #2c1810;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-header p {
+            font-family: 'Inter', sans-serif;
+            color: #4a2c1a;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .barcode-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+
+        .barcode-image {
+            max-width: 60%;
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .barcode-image:hover {
+            transform: scale(1.05);
+        }
+
+        .barcode-instruction {
+            font-family: 'Inter', sans-serif;
+            color: #4a2c1a;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .modal-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 152, 0, 0.2);
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .close-btn:hover {
+            background: linear-gradient(135deg, #f57c00, #e65100);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -1552,6 +1690,16 @@
                         <div class="sparkle" style="top: 18px; right: 18px; animation-delay: 0.7s;"></div>
                         <div class="sparkle" style="bottom: 20px; left: 22px; animation-delay: 1.1s;"></div>
                     </div>
+
+                    <div class="menu-item" onclick="showPreTest()">
+                        <div class="menu-icon">📋</div>
+                        <div class="menu-text-content">
+                            <h3>Pre-Test</h3>
+                            <p>Soal evaluasi awal untuk mengukur pemahaman dasar sebelum mempelajari materi bolen pisang</p>
+                        </div>
+                        <div class="sparkle" style="top: 16px; left: 18px; animation-delay: 0.9s;"></div>
+                        <div class="sparkle" style="bottom: 18px; right: 20px; animation-delay: 1.3s;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1573,6 +1721,27 @@
         </div>
     </div>
 
+    <!-- Pre-Test Modal -->
+    <div id="preTestModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreTest()">&times;</span>
+            <div class="modal-header">
+                <h2>📋 Soal Pre-Test</h2>
+                <p>Evaluasi Pemahaman Awal Materi Bolen Pisang</p>
+            </div>
+            <div class="barcode-container">
+                <img src="Gambar/barcode.jpg" alt="Barcode Soal Pre-Test" class="barcode-image">
+                <p class="barcode-instruction">
+                    Scan barcode di atas menggunakan aplikasi scanner QR/barcode pada smartphone Anda untuk mengakses soal pre-test.
+                    Soal ini dirancang untuk mengukur pemahaman awal Anda tentang materi pembuatan bolen pisang.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="close-btn" onclick="closePreTest()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Navigation function
         function navigateTo(page) {
@@ -1587,6 +1756,32 @@
 
         function goHome() {
             window.location.href = 'cover.html';
+        }
+
+        // Pre-Test Modal Functions
+        function showPreTest() {
+            const modal = document.getElementById('preTestModal');
+            modal.style.display = 'block';
+            
+            // Add loading effect to clicked item
+            const clickedItem = event.currentTarget;
+            clickedItem.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                clickedItem.style.transform = '';
+            }, 150);
+        }
+
+        function closePreTest() {
+            const modal = document.getElementById('preTestModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('preTestModal');
+            if (event.target == modal) {
+                closePreTest();
+            }
         }
 
         // Loading animation

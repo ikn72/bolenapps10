@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolen Pisang - Capaian Pembelajaran</title>
+    <title>Bolen Pisang - Elemen & Capaian Pembelajaran</title>
     <link rel="icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
     <link rel="shortcut icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
     <style>
@@ -136,10 +136,11 @@
             font-size: 1.1rem;
             font-weight: bold;
             color: #783f04;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
             padding-bottom: 8px;
             border-bottom: 1px solid #ff8c00;
             position: relative;
+            text-align: left;
         }
 
         .element-title::before {
@@ -156,8 +157,8 @@
             border: 1px solid rgba(255, 140, 0, 0.2);
             flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             min-height: 200px;
         }
 
@@ -165,8 +166,18 @@
             font-size: 1rem;
             line-height: 1.6;
             color: #2c3e50;
-            text-align: center;
-            margin: 0;
+            text-align: justify;
+            margin: 0 0 15px 0;
+            padding: 0;
+            font-weight: 500;
+        }
+
+        .element-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            text-align: justify;
+            margin: 0 0 20px 0;
             padding: 0;
             font-weight: 500;
         }
@@ -390,12 +401,16 @@
     <div class="container">
         <div class="content">
             <div class="header">
-                <h1 class="page-title">CAPAIAN PEMBELAJARAN (CP)</h1>
+                <h1 class="page-title">ELEMEN & CAPAIAN PEMBELAJARAN (CP)</h1>
                 <p class="subtitle">Resep Bolen Pisang</p>
             </div>
 
             <div class="cp-content">
                 <div class="main-content-section">
+                    <h3 class="element-title">Elemen Pembelajaran:</h3>
+                    <p class="element-description">1. Pengolahan Makanan dan Minuman</p>
+                    
+                    <h3 class="element-title">Capaian Pembelajaran:</h3>
                     <p class="main-description">
                         Pada akhir fase F peserta didik mampu memahami isi resep standar dalam melaksanakan proses membuat hidangan continental, oriental dan Indonesia yang otentik berbahan dasar nabati dan hewani. Peserta didik mampu membuat makanan penutup (dessert), mengolah kue tradisional Indonesia, membuat produk pastry dan bakery yang sesuai dengan kebutuhan dan standar industri.
                     </p>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Soal Pre-Test - Media Interaktif Bolen Pisang</title>
+    <link rel="icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link rel="shortcut icon" type="image/png" href="Gambar/desain kue jadi 2.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 50%, #ff4500 100%);
+            height: 100vh;
+            padding: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Enhanced smooth background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating particles effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            height: calc(100vh - 40px);
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 140, 0, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header with logos */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff8c00;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff8c00, #ff6b35);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        /* Main content area */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .barcode-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 140, 0, 0.2);
+            justify-content: center;
+        }
+
+        .barcode-image {
+            width: 320px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .barcode-instruction {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: left;
+            font-weight: 500;
+            line-height: 1.5;
+            max-width: 300px;
+            flex: 1;
+        }
+
+        .description-text {
+            font-family: 'Inter', sans-serif;
+            color: #2c3e50;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 152, 0, 0.3);
+            gap: 8px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+            background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+        }
+
+        .home-btn {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            box-shadow: 0 2px 8px rgba(52, 73, 94, 0.3);
+        }
+
+        .home-btn:hover {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            box-shadow: 0 4px 12px rgba(52, 73, 94, 0.4);
+        }
+
+        .icon {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        /* University Footer */
+        .university-footer {
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 107, 53, 0.08) 100%);
+            border-radius: 0 0 15px 15px;
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .university-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0;
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .university-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .university-text {
+            font-size: 0.65rem;
+            color: #783f04;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.2;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .barcode-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .barcode-image {
+                width: 280px;
+            }
+
+            .barcode-instruction {
+                font-size: 0.9rem;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 8px 12px;
+                font-size: 0.7rem;
+            }
+
+            .university-footer {
+                padding: 6px 10px;
+                margin-top: 6px;
+            }
+
+            .university-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 4px;
+            }
+
+            .university-logo {
+                width: 18px;
+                height: 18px;
+            }
+
+            .university-text {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .barcode-container {
+                flex-direction: column;
+                padding: 12px;
+                gap: 12px;
+            }
+
+            .barcode-image {
+                width: 240px;
+            }
+
+            .barcode-instruction {
+                font-size: 0.85rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Soal Pre-Test</h1>
+                <p class="subtitle">Silakan scan barcode di bawah ini untuk mengakses soal pre-test</p>
+            </div>
+
+            <!-- Barcode section -->
+            <div class="barcode-section">
+                <div class="barcode-container">
+                    <img src="Gambar/barcode.jpg" alt="Barcode Soal Pre-Test" class="barcode-image">
+                    <p class="barcode-instruction">
+                        Arahkan kamera smartphone Anda ke barcode di atas untuk mengakses soal pre-test.<br>
+                        Pastikan koneksi internet stabil untuk pengalaman terbaik.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="tujuanpemb_page_tjpemb.html" class="nav-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Kembali ke Tujuan Pembelajaran
+            </a>
+            
+            <a href="page_1.html" class="nav-btn home-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                Beranda
+            </a>
+            
+            <a href="pengantar_page_1_1new.html" class="nav-btn">
+                Lanjut ke Materi
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- University Footer -->
+        <div class="university-footer">
+            <div class="university-info">
+                <img src="Gambar/logo universitas_negeri_medan_unimed_.png" alt="Logo UNIMED" class="university-logo">
+                <div class="university-text">
+                    <strong>Universitas Negeri Medan (UNIMED)</strong><br>
+                    Program Studi Pendidikan Tata Boga
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

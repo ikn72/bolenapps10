@@ -194,60 +194,37 @@
         }
 
         /* Header with logos */
-        .header {
+        .header-logos {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            position: relative;
+            margin-bottom: 15px;
+            padding: 0 15px;
+            flex-shrink: 0;
         }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 50%;
-            transform: translateX(-50%);
+        
+        .logo-unimed {
             width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                #ff9800, 
-                #f57c00, 
-                #e65100);
-            border-radius: 2px;
-            box-shadow: 0 1px 4px rgba(255, 152, 0, 0.3);
-        }
-
-        .logo {
-            width: 35px;
-            height: 35px;
+            height: 50px;
             border-radius: 50%;
-            object-fit: cover;
-            background: white;
-            padding: 3px;
-            box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 152, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
-
-        .logo:hover {
+        
+        .logo-unimed:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(255, 152, 0, 0.4);
         }
-
-        .logo:hover {
-            transform: scale(1.08) rotate(8deg);
-            box-shadow: 
-                0 8px 35px rgba(0, 0, 0, 0.25),
-                0 0 0 3px rgba(255, 255, 255, 0.6);
+        
+        .logo-smk {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
-
-        .logo:hover::before {
-            opacity: 1;
+        
+        .logo-smk:hover {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         /* Title section */
@@ -255,29 +232,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 3px;
             text-align: center;
             position: relative;
+            margin-top: -15px;
         }
 
         .title-header {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             justify-content: center;
         }
 
         .main-logo {
-            width: 12px;
-            height: 8px;
+            width: 25px;
+            height: 18px;
             object-fit: contain;
             background: white;
             border-radius: 50%;
-            padding: 1px;
+            padding: 0px;
             box-shadow: 
-                0 6px 20px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 152, 0, 0.3);
-            border: 1px solid rgba(255, 152, 0, 0.3);
+                0 2px 6px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 152, 0, 0.12);
+            border: 1px solid rgba(255, 152, 0, 0.12);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -334,7 +312,7 @@
 
         .page-title {
             font-family: 'Playfair Display', 'Poppins', serif;
-            font-size: 0.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #2c1810;
             margin: 0;
@@ -347,7 +325,7 @@
 
         .subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             color: #4a2c1a;
             font-weight: 500;
             letter-spacing: 0.01em;
@@ -1613,9 +1591,9 @@
 
     <div class="container loading">
         <!-- Header -->
-        <div class="header">
-            <img src="Gambar/logo universitas_negeri_medan_unimed_.png" alt="UNIMED Logo" class="logo">
-            <img src="Gambar/logo sekolah SMK NEGERI 1 BERINGIN.png" alt="SMK Logo" class="logo">
+        <div class="header-logos">
+            <img src="Gambar/logo universitas_negeri_medan_unimed_.png" alt="UNIMED Logo" class="logo-unimed">
+            <img src="Gambar/logo sekolah SMK NEGERI 1 BERINGIN.png" alt="SMK Logo" class="logo-smk">
         </div>
 
         <!-- Title Section -->
@@ -1641,20 +1619,12 @@
                         <div class="sparkle" style="top: 30px; right: 15px; animation-delay: 0.5s;"></div>
                     </div>
 
-                    <div class="menu-item" onclick="navigateTo('atp_page_atp.html')">
-                        <div class="menu-icon">📝</div>
-                        <div class="menu-text-content">
-                            <h3>ATP</h3>
-                            <p>Alur Tujuan Pembelajaran yang sistematis untuk memahami proses pembuatan bolen pisang secara menyeluruh</p>
-                        </div>
-                        <div class="sparkle" style="top: 15px; left: 25px; animation-delay: 0.2s;"></div>
-                    </div>
 
                     <div class="menu-item" onclick="navigateTo('cp_page_cp_.html')">
                         <div class="menu-icon">🏆</div>
                         <div class="menu-text-content">
-                            <h3>CP</h3>
-                            <p>Capaian Pembelajaran yang harus dicapai siswa dalam mempelajari teknik pembuatan bolen pisang</p>
+                            <h3>Elemen & CP</h3>
+                            <p>Elemen dan Capaian Pembelajaran yang harus dicapai siswa dalam mempelajari teknik pembuatan bolen pisang</p>
                         </div>
                         <div class="sparkle" style="top: 20px; right: 20px; animation-delay: 0.8s;"></div>
                     </div>
@@ -1667,6 +1637,16 @@
                         </div>
                         <div class="sparkle" style="top: 12px; left: 30px; animation-delay: 1.2s;"></div>
                         <div class="sparkle" style="bottom: 15px; right: 25px; animation-delay: 1.5s;"></div>
+                    </div>
+
+                    <div class="menu-item" onclick="navigateTo('soal pretest.html')">
+                        <div class="menu-icon">📝</div>
+                        <div class="menu-text-content">
+                            <h3>Pretest</h3>
+                            <p>Evaluasi pemahaman awal sebelum mempelajari materi pembuatan bolen pisang</p>
+                        </div>
+                        <div class="sparkle" style="top: 14px; left: 16px; animation-delay: 1.4s;"></div>
+                        <div class="sparkle" style="bottom: 16px; right: 18px; animation-delay: 1.6s;"></div>
                     </div>
 
                     <div class="menu-item cooking-item" onclick="navigateTo('pengantar_page_1_1new.html')">
@@ -1691,11 +1671,11 @@
                         <div class="sparkle" style="bottom: 20px; left: 22px; animation-delay: 1.1s;"></div>
                     </div>
 
-                    <div class="menu-item" onclick="showPreTest()">
+                    <div class="menu-item" onclick="showPostTest()">
                         <div class="menu-icon">📋</div>
                         <div class="menu-text-content">
-                            <h3>Pre-Test</h3>
-                            <p>Soal evaluasi awal untuk mengukur pemahaman dasar sebelum mempelajari materi bolen pisang</p>
+                            <h3>Post-Test</h3>
+                            <p>Soal evaluasi akhir untuk mengukur pemahaman setelah mempelajari materi bolen pisang</p>
                         </div>
                         <div class="sparkle" style="top: 16px; left: 18px; animation-delay: 0.9s;"></div>
                         <div class="sparkle" style="bottom: 18px; right: 20px; animation-delay: 1.3s;"></div>
@@ -1721,23 +1701,23 @@
         </div>
     </div>
 
-    <!-- Pre-Test Modal -->
-    <div id="preTestModal" class="modal">
+    <!-- Post-Test Modal -->
+    <div id="postTestModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closePreTest()">&times;</span>
+            <span class="close" onclick="closePostTest()">&times;</span>
             <div class="modal-header">
-                <h2>📋 Soal Pre-Test</h2>
-                <p>Evaluasi Pemahaman Awal Materi Bolen Pisang</p>
+                <h2>📋 Soal Post-Test</h2>
+                <p>Evaluasi Pemahaman Akhir Materi Bolen Pisang</p>
             </div>
             <div class="barcode-container">
-                <img src="Gambar/barcode.jpg" alt="Barcode Soal Pre-Test" class="barcode-image">
+                <img src="Gambar/barcode.jpg" alt="Barcode Soal Post-Test" class="barcode-image">
                 <p class="barcode-instruction">
-                    Scan barcode di atas menggunakan aplikasi scanner QR/barcode pada smartphone Anda untuk mengakses soal pre-test.
-                    Soal ini dirancang untuk mengukur pemahaman awal Anda tentang materi pembuatan bolen pisang.
+                    Scan barcode di atas menggunakan aplikasi scanner QR/barcode pada smartphone Anda untuk mengakses soal post-test.
+                    Soal ini dirancang untuk mengukur pemahaman akhir Anda setelah mempelajari materi pembuatan bolen pisang.
                 </p>
             </div>
             <div class="modal-footer">
-                <button class="close-btn" onclick="closePreTest()">Tutup</button>
+                <button class="close-btn" onclick="closePostTest()">Tutup</button>
             </div>
         </div>
     </div>
@@ -1758,9 +1738,9 @@
             window.location.href = 'cover.html';
         }
 
-        // Pre-Test Modal Functions
-        function showPreTest() {
-            const modal = document.getElementById('preTestModal');
+        // Post-Test Modal Functions
+        function showPostTest() {
+            const modal = document.getElementById('postTestModal');
             modal.style.display = 'block';
             
             // Add loading effect to clicked item
@@ -1771,16 +1751,16 @@
             }, 150);
         }
 
-        function closePreTest() {
-            const modal = document.getElementById('preTestModal');
+        function closePostTest() {
+            const modal = document.getElementById('postTestModal');
             modal.style.display = 'none';
         }
 
         // Close modal when clicking outside of it
         window.onclick = function(event) {
-            const modal = document.getElementById('preTestModal');
+            const modal = document.getElementById('postTestModal');
             if (event.target == modal) {
-                closePreTest();
+                closePostTest();
             }
         }
 

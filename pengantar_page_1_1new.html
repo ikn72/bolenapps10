@@ -647,6 +647,31 @@
             font-size: 0.6rem;
         }
     }
+    /* Global 30% scale and responsive spacing overrides */
+    html { font-size: 130%; }
+
+    :root {
+        --space-xs: clamp(6px, 0.8vw, 12px);
+        --space-sm: clamp(10px, 1.2vw, 16px);
+        --space-md: clamp(16px, 2vw, 24px);
+        --space-lg: clamp(24px, 3vw, 36px);
+    }
+
+    .slide { padding: var(--space-lg); }
+    .slide-content { padding: var(--space-md); margin-top: var(--space-lg); }
+    .slide-title { margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); }
+    .slide-text, .slide-list { padding: var(--space-sm); }
+    .slide-list ol, .slide-list ul { padding-left: calc(var(--space-md) + 8px); margin-left: var(--space-sm); }
+    .ingredients-grid { gap: var(--space-md); margin-top: var(--space-sm); }
+    .ingredient-group { padding: var(--space-sm); }
+    .navigation { gap: var(--space-sm); bottom: clamp(70px, 9vh, 120px); }
+    .slide-indicator { gap: var(--space-xs); }
+
+    .header { height: clamp(60px, 8vh, 80px); padding: 0 var(--space-sm); }
+    .header-logos img { height: clamp(40px, 6vh, 52px); padding: 4px; }
+    .home-btn { top: var(--space-xs); right: var(--space-sm); width: clamp(40px, 6vh, 52px); height: clamp(40px, 6vh, 52px); }
+
+    .university-footer { padding: var(--space-xs) var(--space-sm); }
 </style>
 
 
@@ -660,15 +685,13 @@
              <img src="Gambar/logo sekolah SMK NEGERI 1 BERINGIN.png" alt="Logo SMK Negeri 1 Beringin">
          </div>
         <div class="header-title">
-            <h1>🍌 Pengantar Bolen Pisang</h1>
+            <h1>🍌 Materi Bolen Pisang</h1>
         </div>
         <div class="slide-counter">
             <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
         </div>
     </div>
 
-    <!-- Home Button -->
-    <button class="home-btn" onclick="goHome()" title="Kembali ke Beranda">🏠</button>
 
     <!-- Slide Container -->
     <div class="slide-container">
@@ -815,8 +838,7 @@
                         <ul>
                             <li>• Pisang Raja yang masak 1 buah</li>
                             <li>• Margarin 10 gr</li>
-                            
-                            <li>• Filling cokelat 84gr</li>
+                    
 
                         </ul>
                     </div>
@@ -836,7 +858,7 @@
                         <ul>
                             <li>• Tepung terigu protein tinggi 54 gr</li>
                             <li>• Margarin 40 gr</li>
-                            <li>• Filling Cokelat 84 gr</li>
+                            
                         </ul>
                     </div>
 
@@ -847,7 +869,7 @@
                             <li>• Kuning telur 1 butir</li>
                             <li>• Susu kental manis 1 sdm</li>
                             <li>• Keju parut 10 gr</li>
-                            <li>• Selai cokelat 100 gr</li>
+                            <li>• Filling Cokelat 84 gr</li>
                         </ul>
                     </div>
                 </div>
@@ -869,14 +891,14 @@
                     <ol>
                         <li>Campurkan semua bahan B uleni hingga tercampur rata.</li>
                         <li>Tutup adonan mengggunakan wraping dan istirahatkan selama 30 menit.</li>
-                        <li>Kemudian dibagi menjadi 26 gr (7 potong).</li>
+                        <li>Kemudian dibagi menjadi 26 gr (6 potong).</li>
                     </ol>
 
                     <h3>Bahan C (Oil Dough):</h3>
                     <ol>
                         <li>Campurkan semua bahan C uleni hingga tercampur rata.</li>
                         <li>Tutup adonan menggunakan wrapping dan istirahatkan selama 30 menit.</li>
-                        <li>Kemudian dibagi menjadi 13 gr (7 potong).</li>
+                        <li>Kemudian dibagi menjadi 13 gr (6 potong).</li>
                     </ol>
 
                     <h3>Proses Pembentukan:</h3>
